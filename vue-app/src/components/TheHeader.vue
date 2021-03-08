@@ -6,7 +6,7 @@
           <router-link to="/" exact>Home</router-link>
         </li>
         <li>
-          <router-link to="/users">Users</router-link>
+          <router-link to="/users">Orders</router-link>
         </li>
       </ul>
     </nav>
@@ -29,7 +29,7 @@ ul {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
 }

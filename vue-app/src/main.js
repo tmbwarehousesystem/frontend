@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import WelcomeScreen from './pages/WelcomeScreen.vue';
 import UsersList from './pages/UsersList.vue';
+import vuetify from './plugins/vuetify';
 
 Vue.use(VueRouter);
 
@@ -15,5 +16,7 @@ new Vue({
       { path: '/users', component: UsersList },
     ],
   }),
-  render: (h) => h(App),
+
+  vuetify,
+  render: (h) => h(App)
 }).$mount('#app');
