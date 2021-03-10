@@ -1,6 +1,6 @@
 <template>
   <span class="go-back">
-    <button @click="goBack">go back</button>
+    <v-btn @click="goBack" color="primary"> Go back </v-btn>
   </span>
 </template>
 
@@ -9,8 +9,8 @@ export default {
   methods: {
     goBack() {
       return this.$router.go(-1);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -18,6 +18,8 @@ export default {
 .go-back {
   display: flex;
   cursor: pointer;
+  position: absolute;
+  margin: -3rem 0 0 60px;
 }
 button {
   border: 0;

@@ -49,29 +49,21 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import store from "@/store.js";
 export default {
   name: "home",
   components: {},
   data() {
     return {
-      destinations: store.destinations,
+      destinations: store.options,
     };
   },
 };
 </script>
 <style scoped>
-/* .home {
-  max-width: 80%;
-} */
 img {
   max-width: 200px;
 }
-/* .destinations {
-  display: flex;
-  justify-content: space-between;
-} */
 a {
   color: white!important;
   text-decoration: none;
@@ -82,6 +74,5 @@ a:visited {
 } */
 .scale{
   width: 50px;
-  /* transform:scale(1.5) */
 }
 </style>

@@ -2,7 +2,6 @@
   <div>
     <GoBack />
 
-    
     <section class="destinations">
       <h1>
         {{ destination.name }}
@@ -16,9 +15,7 @@
       </div>
     </section>
 
-
-
-    <!-- <section class="experiences">
+    <section class="experiences">
       <h2>Top experiences in {{ destination.name }}</h2>
       <div class="cards" id="experience">
         <div
@@ -30,7 +27,7 @@
             :to="{
               name: 'experienceDetails',
               params: { experienceSlug: experience.slug },
-              hash: '#experience'
+              hash: '#experience',
             }"
           >
             <img
@@ -44,7 +41,7 @@
         </div>
       </div>
       <router-view :key="$route.path" />
-    </section> -->
+    </section>
   </div>
 </template>
 <script>
@@ -52,7 +49,7 @@ import store from "@/store";
 import GoBack from "@/components/GoBack";
 export default {
   components: {
-    GoBack
+    GoBack,
   },
   data() {
     return {};
@@ -60,16 +57,19 @@ export default {
   props: {
     slug: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     destination() {
       return store.destinations.find(
-        destination => destination.slug === this.slug
+        (destination) => destination.slug === this.slug
       );
-    }
-  }
+    },
+  },
+  created() {
+    console.log("DES");
+  },
 };
 </script>
 

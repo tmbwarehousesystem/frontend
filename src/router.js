@@ -16,6 +16,7 @@ const router = new Router({
       if (to.hash) {
         position.selector = to.hash;
         if (to.hash === "#experience") {
+          console.log('EXPERIENCE')
           position.offset = { y: 140 };
         }
         if (document.querySelector(to.hash)) {
@@ -35,47 +36,47 @@ const router = new Router({
       meta: { requiresAuth: true }
     },
 
+    // {
+    //   path: "/destination/:slug",
+    //   name: "DestinationDetails",
+    //   props: true,
+    //   component: () =>
+    //     import(/* webpackChunkName: "DestinationDetails"*/ "./views/DestinationDetails"),
+    //   meta: {
+    //     requiresAuth: true
+    //   },
+    //   // children: [
+    //   //   {
+    //   //     path: ":experienceSlug",
+    //   //     name: "experienceDetails",
+    //   //     props: true,
+    //   //     component: () =>
+    //   //       import(/*webpackChunkName: "ExperienceDetails"*/ "./views/ExperienceDetails")
+    //   //   }
+    //   // ],
+    //   beforeEnter: (to, from, next) => {
+    //     console.log('PARAMS', to.params.slug)
+    //     const exists = storeData.destinations.find(
+    //       destination => destination.slug === to.params.slug
+    //     );
+    //     if (exists) {
+    //       next();
+    //     } else {
+    //       next({ name: "notFound" });
+    //     }
+    //   }
+    // },
     {
-      path: "/destination/:slug",
-      name: "DestinationDetails",
-      props: true,
-      component: () =>
-        import(/* webpackChunkName: "DestinationDetails"*/ "./views/DestinationDetails"),
-      meta: {
-        requiresAuth: true
-      },
-      children: [
-        {
-          path: ":experienceSlug",
-          name: "experienceDetails",
-          props: true,
-          component: () =>
-            import(/*webpackChunkName: "ExperienceDetails"*/ "./views/ExperienceDetails")
-        }
-      ],
-      beforeEnter: (to, from, next) => {
-        console.log('PARAMS', to.params.slug)
-        const exists = storeData.destinations.find(
-          destination => destination.slug === to.params.slug
-        );
-        if (exists) {
-          next();
-        } else {
-          next({ name: "notFound" });
-        }
-      }
-    },
-    {
-      path: "/destination/:slug",
+      path: "/menu/:slug",
       name: "MenuOptions",
       props: true,
       component: () =>
-        import(/* webpackChunkName: "DestinationDetails"*/ "./views/MenuOptions"),
+        import(/* webpackChunkName: "MenuOptions"*/ "./views/MenuOptions"),
       meta: {
         requiresAuth: true
       },
       beforeEnter: (to, from, next) => {
-        const exists = storeData.destinations.find(
+        const exists = storeData.options.find(
           destination => destination.slug === to.params.slug
         );
         if (exists) {
@@ -85,28 +86,19 @@ const router = new Router({
         }
       }
     },
-    {
-      path: "/user",
-      name: "user",
-      component: () =>
-        import(/* webpackChunkName: "User" */ "./views/User.vue"),
-      meta: { requiresAuth: true }
-    },
+    // {
+    //   path: "/user",
+    //   name: "user",
+    //   component: () =>
+    //     import(/* webpackChunkName: "User" */ "./views/User.vue"),
+    //   meta: { requiresAuth: true }
+    // },
     {
       path: "/login",
       name: "login",
       component: () =>
         import(/* webpackChunkName: "Login" */
           "./views/Login.vue")
-    },
-    {
-      path: "/invoices",
-      name: "invoices",
-      component: () =>
-        import(/* webpackChunkName: "Invoices" */ "./views/Invoices"),
-      meta: {
-        requiresAuth: true
-      }
     },
     {
       path: "/404",

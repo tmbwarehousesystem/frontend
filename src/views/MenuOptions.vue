@@ -1,30 +1,33 @@
 <template>
-  <div>
+  <v-container>
     <GoBack />
+    <GoHome />
 
-    
     <section class="destinations">
       <h1>
-        {{ destination.name }}
+        {{ destination.name.toUpperCase() }}
       </h1>
-      <div class="destination-details">
+      <Requisitions v-if="destination.name === 'Requisições'" />
+      <!-- <div class="destination-details">
         <img
           :src="require(`@/assets/${destination.image}`)"
           :alt="destination.name"
         />
-        <p>{{ destination.description }}</p>
-      </div>
+        <p>{{ destination.description }}</p> -->
+      <!-- </div> -->
     </section>
-
-    
-  </div>
+  </v-container>
 </template>
 <script>
 import store from "@/store";
 import GoBack from "@/components/GoBack";
+import GoHome from "@/components/GoHome";
+import Requisitions from "./Requisitions";
 export default {
   components: {
-    GoBack
+    GoBack,
+    GoHome,
+    Requisitions,
   },
   data() {
     return {};
@@ -32,16 +35,19 @@ export default {
   props: {
     slug: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     destination() {
-      return store.destinations.find(
-        destination => destination.slug === this.slug
+      return store.options.find(
+        (destination) => destination.slug === this.slug
       );
-    }
-  }
+    },
+  },
+  created() {
+    console.log("options");
+  },
 };
 </script>
 
