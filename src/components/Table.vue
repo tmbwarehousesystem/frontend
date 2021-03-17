@@ -14,13 +14,13 @@
       :custom-filter="filter"
     >
       <template v-slot:top>
-        <v-text-field
+        <!-- <v-text-field
           dense
           solo
           v-model="requests"
           label="SEARCH PEDIDOS"
           class="mx-5"
-        ></v-text-field>
+        ></v-text-field> -->
         <!-- <v-combobox
         class="mx-5"
         v-model="distributionSelect"
@@ -62,37 +62,37 @@ export default {
         {
           id: 1,
           name: "Out",
-          req: 23,
-          data: 6.0,
-          ped: 34,
+          requisitionNumber: 23,
+          data: '03-22-2020',
+          requestNumber: 34,
         },
         {
           id: 2,
           name: "In",
-          req: 43,
-          data: 6.0,
-          ped: 23,
+          requisitionNumber: 43,
+          data: '03-22-2020',
+          requestNumber: 23,
         },
         {
           id: 3,
           name: "Out",
-          req: 34,
-          data: 6.0,
-          ped: 24,
+          requisitionNumber: 34,
+          data: '03-22-2020',
+          requestNumber: 24,
         },
         {
           id: 4,
           name: "Out",
-          req: 1,
-          data: 6.0,
-          ped: 45,
+          requisitionNumber: 1,
+          data: '03-22-2020',
+          requestNumber: 45,
         },
         {
           id: 5,
           name: "In",
-          req: 23,
-          data: 6.0,
-          ped: 4,
+          requisitionNumber: 23,
+          data: '03-22-2020',
+          requestNumber: 4,
         },
       ],
     };
@@ -106,11 +106,11 @@ export default {
           sortable: false,
           value: "name",
         },
-        { text: "Req. Nº", value: "req" },
+        { text: "Req. Nº", value: "requisitionNumber" },
         { text: "Data", value: "data" },
         {
           text: "Ped. Nº",
-          value: "ped",
+          value: "requestNumber",
           filter: (value) => {
             if (!this.requests) return true;
 
