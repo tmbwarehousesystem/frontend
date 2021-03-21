@@ -33,5 +33,23 @@ export default {
       description:
         "all about jamaica. Suspendisse lobortis pharetra tempor. Cras eleifend ante sed arcu interdum, in bibendum enim ultricies. Integer rutrum quis risus at tempor. Maecenas facilisis, nisi vel pellentesque maximus, lectus felis malesuada purus, a pulvinar elit est quis turpis. Duis convallis purus quis finibus consequat. Pellentesque faucibus tincidunt augue non consequat. Donec fringilla at est sit amet blandit. Nunc at porttitor ligula. Fusce sed odio turpis.",
     }
+  ],
+  pdaOptions: [
+    {
+      name: "Requisições",
+      slug: "requisicoes",
+      image: "table.svg",
+      id: 1,
+      description:
+        "test.",
+    },
+    {
+      name: "Transferências",
+      slug: "transferencias",
+      image: "code.svg",
+      id: 4,
+      description:
+        "test2",
+    }
   ]
 };

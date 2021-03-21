@@ -1,25 +1,25 @@
 <template>
   <v-app>
-  <div id="app">
-    <TheNavigation />
-    <transition name="fade" mode="out-in">
-      <router-view :key="$route.path" style="margin-top: 8rem"/>
-    </transition>
-  </div>
+    <div id="app">
+      <TheNavigation />
+      <transition name="fade" mode="out-in">
+        <router-view :key="$route.path" style="margin-top: 20vh;"/>
+      </transition>
+    </div>
   </v-app>
 </template>
+
 <script>
 import TheNavigation from "@/components/TheNavigation";
-
 export default {
   components: {
     TheNavigation
   }
 };
 </script>
-<style lang="less">
-@main-color: #1597f6; // sea blue
 
+<style lang="less">
+@import "./assets/styles/general.less";
 
 * {
   box-sizing: border-box;
@@ -105,7 +105,7 @@ body {
   border-radius: 5px;
 }
 .btn-primary {
-  color: white!important;
+  color: white !important;
   background-color: @main-color!important;
 }
 </style>

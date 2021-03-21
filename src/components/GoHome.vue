@@ -21,7 +21,7 @@ export default {
   display: flex;
   cursor: pointer;
   position: absolute;
-  margin: -2.7rem 0 0 20px;
+  margin: -7vh 0 0 0;
 }
 button {
   border: 0;

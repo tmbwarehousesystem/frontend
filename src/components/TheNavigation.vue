@@ -2,10 +2,10 @@
   <v-app-bar app id="nav" dark>
     <div class="d-flex align-center">
       <v-img
-        alt="Vuetify Logo"
+        alt="Logo"
         max-height="150"
         max-width="250"
-        :src="require(`@/assets/mb.jpg`)"
+        :src="require(`@/assets/logo2.png`)"
         transition="scale-transition"
         width="150"
       />

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-data-table
+  <div style="display: flex;">
+    <v-data-table dense
       @click:row="rowClick"
       item-key="id"
       single-select
@@ -8,7 +8,7 @@
       :headers="headers"
       :items="elements"
       :item-class="itemRowBackground"
-      class="elevation-5 pt-4"
+      class="elevation-1 pt-4"
       mobile-breakpoint="0"
       :search="search"
       :custom-filter="filter"
@@ -48,6 +48,12 @@ import Item from "@/components/Item";
 export default {
   components: {
     Item,
+  },
+  props: {
+    headers: {
+      type: Array,
+      required: true
+    }
   },
   data() {
     return {
@@ -97,29 +103,29 @@ export default {
       ],
     };
   },
-  computed: {
-    headers() {
-      return [
-        {
-          text: "Tipo",
-          align: "start",
-          sortable: false,
-          value: "name",
-        },
-        { text: "Req. Nº", value: "requisitionNumber" },
-        { text: "Data", value: "data" },
-        {
-          text: "Ped. Nº",
-          value: "requestNumber",
-          filter: (value) => {
-            if (!this.requests) return true;
+  // computed: {
+  //   headers() {
+  //     return [
+  //       {
+  //         text: "Tipo",
+  //         align: "start",
+  //         sortable: false,
+  //         value: "name",
+  //       },
+  //       { text: "Req. Nº", value: "requisitionNumber" },
+  //       { text: "Data", value: "data" },
+  //       {
+  //         text: "Ped. Nº",
+  //         value: "requestNumber",
+  //         filter: (value) => {
+  //           if (!this.requests) return true;
 
-            return value === parseInt(this.requests);
-          },
-        },
-      ];
-    },
-  },
+  //           return value === parseInt(this.requests);
+  //         },
+  //       },
+  //     ];
+  //   },
+  // },
   methods: {
     rowClick: function (item, row) {
       row.select(true);

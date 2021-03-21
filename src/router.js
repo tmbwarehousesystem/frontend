@@ -9,9 +9,11 @@ const router = new Router({
   mode: "history",
   linkExactActiveClass: "vue-school-active-class",
   scrollBehavior(to, from, savedPosition) {
+    console.log('SCROLL 1', savedPosition)
     if (savedPosition) {
       return savedPosition;
     } else {
+      console.log('SCROLL 2', to.hash)
       const position = {};
       if (to.hash) {
         position.selector = to.hash;
@@ -77,6 +79,26 @@ const router = new Router({
       },
       beforeEnter: (to, from, next) => {
         const exists = storeData.options.find(
+          destination => destination.slug === to.params.slug
+        );
+        if (exists) {
+          next();
+        } else {
+          next({ name: "notFound" });
+        }
+      }
+    },
+    {
+      path: "/pda/:slug",
+      name: "PdaMenuOptions",
+      props: true,
+      component: () =>
+        import(/* webpackChunkName: "PdaMenuOptions"*/ "./views/PdaMenuOptions"),
+      meta: {
+        requiresAuth: true
+      },
+      beforeEnter: (to, from, next) => {
+        const exists = storeData.pdaOptions.find(
           destination => destination.slug === to.params.slug
         );
         if (exists) {
